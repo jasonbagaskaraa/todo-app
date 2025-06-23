@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); // kolom id
+            $table->string('judul'); // kolom judul task
+            $table->text('deskripsi'); // kolom deskripsi task
+            $table->enum('status', ['pending', 'in_progress', 'selesai'])->default('pending'); // kolom status task
+            $table->timestamps(); // kolom created_at dan updated
         });
     }
 
