@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     public function index(){
-        $task = Task::all(); // Tampilin semua task yang ada di db
+        $tasks = Task::all(); // Tampilin semua task yang ada di db
 
-        return view('tasks.index', compact('task')); // mengirim data ke tampilan (view), compact untuk mengirim variabel $task ke view
+        return view('tasks.index', compact('tasks')); // mengirim data ke tampilan (view), compact untuk mengirim variabel $task ke view
     }
 
     public function create() {
