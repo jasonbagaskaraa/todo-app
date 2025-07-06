@@ -7,6 +7,17 @@
 </head>
 <body>
     <h1>Tambah Tugas</h1>
+    
+    @if ($errors->any())
+        <div style="color: red">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
     <form action="{{ route('tasks.store') }}" method="POST">
         @csrf
 
@@ -22,9 +33,10 @@
             <option value="in_progress" {{ old('status') == 'in_progress' ? 'selected' : ''}}>In Progress</option>
             <option value="selesai" {{ old('status') == 'selesai' ? 'selected' : ''}}>Selesai</option>
         </select>
+        
         <button type="submit">Simpan Tugas</button>
     </form>
 
-    <a href="{{ route('tasks.index') }}">Kembali ke Daftar Tugas</a>
+    <a href="{{ route('tasks.index') }}">Kembali ke To Do List</a>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <title>To Do list</title>
 </head>
 <body>
-    <h1>Daftar Tugas</h1>
+    <h1>To Do List</h1>
     @if(session('success'))
         <div style="color:green">
             {{ session('success') }}
