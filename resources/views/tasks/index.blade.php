@@ -16,7 +16,7 @@
     <a href="{{ route('tasks.create') }}">Tambah Tugas Baru</a>
 
     <ul>
-        @foreach($tasks as $task)
+        @forelse($tasks as $task)
         <li>
             <strong>{{ $task->judul }}</strong> - {{ $task->status }} <br>
 
@@ -30,7 +30,9 @@
                 <button type="submit">Hapus</button>
             </form>
         </li>
-        @endforeach
+        @empty
+        <p>Tidak ada to do</p>
+        @endforelse
     </ul>
 </body>
 </html>
